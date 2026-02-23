@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind css cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body.geist-font {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body
+    class="max-w-sm md:max-w-3xl lg:max-w-6xl mx-auto geist-font bg-gray-200"
+  >
+    <header class="p-4">
+      <!-- statistics section -->
+      <h1 class="text-2xl md:text-3xl lg:text-4xl">Job Application Tracker</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 mx-4">
+        <div class="border bg-white px-4 py-2 rounded-lg">
+          <p>Total</p>
+          <p class="jobCount text-3xl">0</p>
+        </div>
+        <div class="border bg-white px-4 py-2 rounded-lg">
+          <p>Interview</p>
+          <p id="interviewJobs" class="text-green-600 text-3xl">0</p>
+        </div>
+        <div class="border bg-white px-4 py-2 rounded-lg">
+          <p>Rejected</p>
+          <p id="rejectedJobs" class="text-red-600 text-3xl">0</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="px-4">
+      <!-- filter buttons section -->
+      <section class="mt-8">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg md:text-3xl mb-2">Available Jobs</h3>
+          <p id="selectedJobText">
+            <span id="selectedJobCount" class="font-bold">0</span> jobs
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            onclick="toggleActiveButton(this)"
+            id="all-filter-btn"
+            class="bg-blue-500 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          >
+            All
+          </button>
+          <button
+            onclick="toggleActiveButton(this)"
+            id="interview-filter-btn"
+            class="bg-gray-500 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          >
+            Interview
+          </button>
+          <button
+            onclick="toggleActiveButton(this)"
+            id="rejected-filter-btn"
+            class="bg-gray-500 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          >
+            Rejected
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
