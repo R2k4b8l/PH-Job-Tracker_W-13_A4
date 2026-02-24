@@ -203,3 +203,87 @@ mainContainer.addEventListener("click", function (event) {
 }
 );
 
+// Function to create job cards based on the interviewList
+function createInterviewJobCard() {
+    filteredJobsSection.innerHTML = "";
+    if (interviewList.length === 0) {
+        filteredJobsSection.innerHTML = `
+        <div class="text-center mt-18 border bg-white p-6 rounded-lg">
+            <img src="./jobs.png" alt="No Rejected Jobs" class="mx-auto w-24 opacity-50">
+        <h2 class="text-center mt-4">No jobs available</h2>
+        <p class="text-center mt-2 text-gray-500">Check back soon for new job opportunities</p>
+        </div> `;
+        return;
+    }
+
+    for (const interview of interviewList) {
+
+        let div = document.createElement("div");
+        div.classList = 'job-card flex flex-col md:flex-row justify-between border p-4 bg-white rounded-lg mt-4';
+        div.innerHTML = `
+            <div class="space-y-4">
+                        <h3 class="company-name text-2xl font-semibold">${interview.companyName}</h3>
+                        <p class="designation font-light">${interview.designation}</p>
+                        <p class="salary font-light">${interview.salary}</p>
+                        <button class="status bg-gray-100 p-2 font-bold">${interview.status}</button>
+                        <p class="details font-medium">${interview.details}</p>
+                        <div class="flex gap-2 mt-2">
+                            <button
+                                class="interview-btn text-green-600 border border-green-600 text-lg py-2 px-2 rounded cursor-pointer">INTERVIEW</button>
+                            <button
+                                class="reject-btn text-red-600 border border-red-600 text-lg py-2 px-2 rounded cursor-pointer">REJECTED</button>
+                        </div>
+                    </div>
+                    
+                     <div>
+                        <button
+                            class="delete-btn bg-red-500 text-white font-bold py-2 px-4 rounded cursor-pointer mt-4 md:mt-0">Delete</button>
+                    </div>
+    `;
+        filteredJobsSection.appendChild(div);
+    }
+
+}
+
+// Function to create job cards 
+function createRejectedJobCard() {
+    filteredJobsSection.innerHTML = "";
+
+    if (rejectedList.length === 0) {
+        filteredJobsSection.innerHTML = `
+        <div class="text-center mt-18 border bg-white p-6 rounded-lg">
+            <img src="./jobs.png" alt="No Rejected Jobs" class="mx-auto w-24 opacity-50">
+        <h2 class="text-center mt-4">No jobs available</h2>
+        <p class="text-center mt-2 text-gray-500">Check back soon for new job opportunities</p>
+        </div>
+        `;
+        return;
+    }
+
+    for (const rejected of rejectedList) {
+
+        let div = document.createElement("div");
+        div.classList = 'job-card flex flex-col md:flex-row justify-between border p-4 bg-white rounded-lg mt-4';
+        div.innerHTML = `
+            <div class="space-y-4">
+                        <h3 class="company-name text-2xl font-semibold">${rejected.companyName}</h3>
+                        <p class="designation font-light">${rejected.designation}</p>
+                        <p class="salary font-light">${rejected.salary}</p>
+                        <button class="status bg-gray-100 p-2 font-bold">${rejected.status}</button>
+                        <p class="details font-medium">${rejected.details}</p>
+                        <div class="flex gap-2 mt-2">
+                            <button
+                                class="interview-btn text-green-600 border border-green-600 text-lg py-2 px-2 rounded cursor-pointer">INTERVIEW</button>
+                            <button
+                                class="reject-btn text-red-600 border border-red-600 text-lg py-2 px-2 rounded cursor-pointer">REJECTED</button>
+                        </div>
+                    </div>
+                    
+                     <div>
+                        <button
+                            class="delete-btn bg-red-500 text-white font-bold py-2 px-4 rounded cursor-pointer mt-4 md:mt-0">Delete</button>
+                    </div>
+    `;
+        filteredJobsSection.appendChild(div);
+    }
+}
